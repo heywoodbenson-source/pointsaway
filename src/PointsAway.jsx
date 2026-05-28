@@ -223,6 +223,40 @@ const CITY_GUIDES = {
       // { name:"YOUR SPOT", category:"Cheap Eats", type:"", emoji:"", budget:"$", kidFriendly:5, mustOrder:"", review:"", photo:"" },
     ],
   },
+
+  "Tokyo, Japan": {
+    emoji:"🗼", tagline:"Neon nights, world-class food & endless discovery",
+    coverColor:"#1a0a1a", accent:"#e87fa0",
+    pointsProgram:"Amex MR (ANA), Chase UR (United → ANA), Capital One (ANA)",
+    visited:"2024", kidRating:5, budgetRating:"$$",
+    topTip:"Stay in Shinjuku for your first visit — central location, great hotels at every price point, and the easiest subway access in the city. Wandering the neon-lit streets at night is an experience in itself.",
+    spots: [
+      // ── Free Activities ─────────────────────────────────────────────────────
+      { name:"Harajuku & Takeshita Street", category:"Free Activities", topPick:true, type:"Neighborhood", emoji:"🎀", budget:"Free", kidFriendly:5,
+        mustOrder:"Crepe from one of the street stands — and browse at least one pet café",
+        review:"Harajuku is vibrant, quirky, and unlike anywhere else in Tokyo. Walking down Takeshita Street is an experience in itself — unique stores, anime-inspired fashion, colorful treats everywhere you look. Don't miss the crepe stands or the cozy pet cafés that line the area. You can easily spend a few hours here. A fantastic introduction to Tokyo's kawaii culture.",
+        photo:"https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=400&h=250&fit=crop" },
+      { name:"Senso-ji Shrine & Nakamise-Dori", category:"Free Activities", type:"Shrine & Market", emoji:"⛩️", budget:"Free", kidFriendly:5,
+        mustOrder:"Browse the 'sweets market' stalls on Nakamise-Dori — then find the dog café in the side mall",
+        review:"The iconic Sensō-ji Shrine in Asakusa is a must, but the real gem is Nakamise-Dori — the lively market street leading up to it. Nicknamed the 'sweets market,' it's packed with Japanese snacks, souvenirs, and unique shops on either side. We loved the dog café tucked into the extended mall — a huge hit with the kids. Visit mid-morning to beat the crowds.",
+        photo:"https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=400&h=250&fit=crop" },
+      { name:"Shibuya Crossing", category:"Free Activities", type:"Landmark", emoji:"🚦", budget:"Free", kidFriendly:5,
+        mustOrder:"Cross at peak hour — then grab a window seat at a nearby café to watch from above",
+        review:"The busiest pedestrian crossing in the world, and it lives up to every video you've seen. Thousands of people crossing at once creates an electrifying atmosphere that has to be experienced firsthand. While you're in the area, grab a bite at one of the nearby sushi spots. Shibuya's energy is unlike anywhere else in Tokyo.",
+        photo:"https://images.unsplash.com/photo-1542051841857-5f90071e7989?w=400&h=250&fit=crop" },
+      { name:"Shinjuku — Omoide Yokocho & Golden Gai", category:"Free Activities", type:"Neighborhood", emoji:"🏮", budget:"Free", kidFriendly:3,
+        mustOrder:"Walk Omoide Yokocho for yakitori smoke and atmosphere — then wander Golden Gai's six alleyways",
+        review:"Shinjuku is worth a full evening on its own. Omoide Yokocho is a narrow alleyway of traditional yakitori and ramen spots — free to walk through and absolutely atmospheric. Golden Gai is even more remarkable: six interconnected alleyways with over 200 tiny bars and eateries. Even if you don't stop to eat or drink, walking through offers a window into Tokyo's historic nightlife scene. Best experienced after dark when the neon comes alive.",
+        photo:"https://images.unsplash.com/photo-1536098561742-ca998e48cbcc?w=400&h=250&fit=crop" },
+      { name:"Tsukiji Outer Market", category:"Free Activities", type:"Market", emoji:"🐟", budget:"Free", kidFriendly:4,
+        mustOrder:"Arrive around 8am — the market is liveliest early and the best food stalls fill up fast",
+        review:"Perfect for early risers or anyone dealing with jet lag. Most stalls open around 8am and the market is lively and buzzing from the start. Wander through food stalls offering fresh bites and drinks — it's free to explore and one of the most authentic market experiences in the city. See our food picks for the best spots to eat here.",
+        photo:"https://images.unsplash.com/photo-1569050467447-ce54b3bbc37d?w=400&h=250&fit=crop" },
+      // 📍 PLACEHOLDER — Sweet Eats, Cheap Eats, Splurge to be added
+      // 📍 PLACEHOLDER — add your Splurge pick for Tokyo
+      // { name:"YOUR SPOT", category:"Splurge", type:"Fine Dining", emoji:"⭐", budget:"$$$$", kidFriendly:2, mustOrder:"", review:"", photo:"" },
+    ],
+  },
 };
 
 
@@ -2663,37 +2697,4 @@ export default function PointsAway() {
       <style>{`@keyframes spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}*{box-sizing:border-box}select option{background:#111f13;color:#e8ead4}::-webkit-scrollbar{width:5px}::-webkit-scrollbar-thumb{background:rgba(255,255,255,0.08);border-radius:3px}`}</style>
     </div>
   );
-}  "Tokyo, Japan": {
-    emoji:"🗼", tagline:"Neon nights, world-class food & endless discovery",
-    coverColor:"#1a0a1a", accent:"#e87fa0",
-    pointsProgram:"Amex MR (ANA), Chase UR (United → ANA), Capital One (ANA)",
-    visited:"2024", kidRating:5, budgetRating:"$$",
-    topTip:"Stay in Shinjuku for your first visit — central location, great hotels at every price point, and the easiest subway access in the city. Wandering the neon-lit streets at night is an experience in itself.",
-    spots: [
-      // ── Free Activities ─────────────────────────────────────────────────────
-      { name:"Harajuku & Takeshita Street", category:"Free Activities", topPick:true, type:"Neighborhood", emoji:"🎀", budget:"Free", kidFriendly:5,
-        mustOrder:"Crepe from one of the street stands — and browse at least one pet café",
-        review:"Harajuku is vibrant, quirky, and unlike anywhere else in Tokyo. Walking down Takeshita Street is an experience in itself — unique stores, anime-inspired fashion, colorful treats everywhere you look. Don't miss the crepe stands or the cozy pet cafés that line the area. You can easily spend a few hours here. A fantastic introduction to Tokyo's kawaii culture.",
-        photo:"https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=400&h=250&fit=crop" },
-      { name:"Senso-ji Shrine & Nakamise-Dori", category:"Free Activities", type:"Shrine & Market", emoji:"⛩️", budget:"Free", kidFriendly:5,
-        mustOrder:"Browse the 'sweets market' stalls on Nakamise-Dori — then find the dog café in the side mall",
-        review:"The iconic Sensō-ji Shrine in Asakusa is a must, but the real gem is Nakamise-Dori — the lively market street leading up to it. Nicknamed the 'sweets market,' it's packed with Japanese snacks, souvenirs, and unique shops on either side. We loved the dog café tucked into the extended mall — a huge hit with the kids. Visit mid-morning to beat the crowds.",
-        photo:"https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=400&h=250&fit=crop" },
-      { name:"Shibuya Crossing", category:"Free Activities", type:"Landmark", emoji:"🚦", budget:"Free", kidFriendly:5,
-        mustOrder:"Cross at peak hour — then grab a window seat at a nearby café to watch from above",
-        review:"The busiest pedestrian crossing in the world, and it lives up to every video you've seen. Thousands of people crossing at once creates an electrifying atmosphere that has to be experienced firsthand. While you're in the area, grab a bite at one of the nearby sushi spots. Shibuya's energy is unlike anywhere else in Tokyo.",
-        photo:"https://images.unsplash.com/photo-1542051841857-5f90071e7989?w=400&h=250&fit=crop" },
-      { name:"Shinjuku — Omoide Yokocho & Golden Gai", category:"Free Activities", type:"Neighborhood", emoji:"🏮", budget:"Free", kidFriendly:3,
-        mustOrder:"Walk Omoide Yokocho for yakitori smoke and atmosphere — then wander Golden Gai's six alleyways",
-        review:"Shinjuku is worth a full evening on its own. Omoide Yokocho is a narrow alleyway of traditional yakitori and ramen spots — free to walk through and absolutely atmospheric. Golden Gai is even more remarkable: six interconnected alleyways with over 200 tiny bars and eateries. Even if you don't stop to eat or drink, walking through offers a window into Tokyo's historic nightlife scene. Best experienced after dark when the neon comes alive.",
-        photo:"https://images.unsplash.com/photo-1536098561742-ca998e48cbcc?w=400&h=250&fit=crop" },
-      { name:"Tsukiji Outer Market", category:"Free Activities", type:"Market", emoji:"🐟", budget:"Free", kidFriendly:4,
-        mustOrder:"Arrive around 8am — the market is liveliest early and the best food stalls fill up fast",
-        review:"Perfect for early risers or anyone dealing with jet lag. Most stalls open around 8am and the market is lively and buzzing from the start. Wander through food stalls offering fresh bites and drinks — it's free to explore and one of the most authentic market experiences in the city. See our food picks for the best spots to eat here.",
-        photo:"https://images.unsplash.com/photo-1569050467447-ce54b3bbc37d?w=400&h=250&fit=crop" },
-      // 📍 PLACEHOLDER — Sweet Eats, Cheap Eats, Splurge to be added
-      // 📍 PLACEHOLDER — add your Splurge pick for Tokyo
-      // { name:"YOUR SPOT", category:"Splurge", type:"Fine Dining", emoji:"⭐", budget:"$$$$", kidFriendly:2, mustOrder:"", review:"", photo:"" },
-    ],
-  },
-
+}
