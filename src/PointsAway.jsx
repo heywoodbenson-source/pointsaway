@@ -2658,8 +2658,8 @@ export default function PointsAway() {
             <div style={{fontSize:8,letterSpacing:"0.2em",color:G,textTransform:"uppercase"}}>Plan family trips with your points</div>
           </div>
         </div>
-        <div style={{display:"flex",gap:3,background:"rgba(255,255,255,0.04)",padding:"3px",borderRadius:9}}>
-          {navItems.map(({id,label})=>(
+        <div style={{display:"flex",gap:3,background:"rgba(255,255,255,0.04)",padding:"3px",borderRadius:9,overflowX:"auto",maxWidth:"calc(100vw - 280px)"}}>
+          {!isMobile && navItems.map(({id,label})=>(
             <button key={id} onClick={()=>{setTab(id);if(id==="planner")setPlannerCity("");}}
               style={{padding:"6px 14px",borderRadius:7,border:"none",background:tab===id?"rgba(126,184,106,0.18)":"transparent",color:tab===id?G:MUT,fontSize:12,fontWeight:tab===id?700:400,cursor:"pointer",fontFamily:F,transition:"all 0.15s",borderBottom:tab===id?`2px solid ${G}`:"2px solid transparent"}}>
               {label}
@@ -2702,6 +2702,22 @@ export default function PointsAway() {
         {tab==="tracker"&&<Tracker userCards={userCards}/>}
         {tab==="transfers"&&<TransferTracker userCards={userCards}/>}
       </div>
+      {isMobile && (
+        <div style={{display:"flex",borderTop:`1px solid ${BORDER}`,background:SURF,flexShrink:0,zIndex:100}}>
+          {navItems.map(({id,label})=>{
+            const emoji = label.split(" ")[0];
+            const name = label.split(" ").slice(1).join(" ");
+            const active = tab === id;
+            return (
+              <button key={id} onClick={()=>{setTab(id);if(id==="planner")setPlannerCity("");}}
+                style={{flex:1,padding:"8px 4px",border:"none",background:"transparent",color:active?G:MUT,fontSize:10,fontWeight:active?700:400,cursor:"pointer",fontFamily:F,display:"flex",flexDirection:"column",alignItems:"center",gap:3,borderTop:active?`2px solid ${G}`:"2px solid transparent"}}>
+                <span style={{fontSize:18}}>{emoji}</span>
+                <span style={{fontSize:9,whiteSpace:"nowrap",overflow:"hidden",textOverflow:"ellipsis",maxWidth:60}}>{name}</span>
+              </button>
+            );
+          })}
+        </div>
+      )}
       <style>{`@keyframes spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}*{box-sizing:border-box}select option{background:#111f13;color:#e8ead4}::-webkit-scrollbar{width:5px}::-webkit-scrollbar-thumb{background:rgba(255,255,255,0.08);border-radius:3px}`}</style>
     </div>
   );
