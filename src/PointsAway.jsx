@@ -1718,7 +1718,7 @@ function Tracker({ userCards, isMobile }) {
   };
   return (
     <div style={{display:"flex",flex:1,minHeight:0,overflow:"hidden",flexDirection:isMobile?"column":"row"}}>
-      <div style={{width:isMobile?"100%":250,background:"#0a160b",borderRight:isMobile?"none":`1px solid ${BORDER}`,borderBottom:isMobile?`1px solid ${BORDER}`:"none",display:showDetail&&isMobile?"none":"flex",flexDirection:"column",overflowY:"auto",maxHeight:isMobile?"45%":"100%"}}>
+      <div style={{width:isMobile?"100%":250,background:"#0a160b",borderRight:isMobile?"none":`1px solid ${BORDER}`,borderBottom:isMobile?`1px solid ${BORDER}`:"none",display:showDetail&&isMobile?"none":"flex",flexDirection:"column",overflowY:"auto",flex:isMobile?"none":"0 0 250px"}}>
         <div style={{padding:14}}>
           <input value={search} onChange={e=>setSearch(e.target.value)} placeholder="🔍 Search cards..." style={{width:"100%",padding:"8px 11px",background:"rgba(255,255,255,0.04)",border:`1px solid ${BORDER}`,borderRadius:7,color:TEXT,fontSize:12,outline:"none",boxSizing:"border-box",fontFamily:F}}/>
           <div style={{display:"flex",gap:4,marginTop:9,flexWrap:"wrap"}}>
@@ -1745,7 +1745,7 @@ function Tracker({ userCards, isMobile }) {
           })}
         </div>
       </div>
-      <div style={{flex:1,overflowY:"auto",padding:isMobile?"14px 16px":"22px 26px",display:!showDetail&&isMobile?"none":"block"}}>
+      <div style={{position:isMobile?"absolute":"relative",top:0,left:0,right:0,bottom:0,overflowY:"auto",padding:isMobile?"14px 16px":"22px 26px",display:!showDetail&&isMobile?"none":"block",zIndex:10,background:"#0c1a0e",flex:1}}>
         {isMobile && showDetail && <button onClick={()=>setShowDetail(false)} style={{background:"none",border:"none",color:"rgba(232,234,212,0.5)",cursor:"pointer",fontSize:13,fontFamily:"Georgia,serif",marginBottom:12,padding:0}}>← Back to list</button>}
         <div style={{background:`linear-gradient(135deg,${card.color},${card.color}bb)`,borderRadius:12,padding:"20px 24px",marginBottom:18,border:`1px solid ${card.accent}33`,position:"relative",overflow:"hidden"}}>
           <div style={{position:"absolute",right:-10,top:-10,width:80,height:80,borderRadius:"50%",background:`${card.accent}10`}}/>
@@ -1936,7 +1936,7 @@ function TransferTracker({ userCards, isMobile }) {
     <div style={{display:"flex",flex:1,minHeight:0,overflow:"hidden",flexDirection:isMobile?"column":"row"}}>
 
       {/* ── Sidebar: destination programs ── */}
-      <div style={{width:isMobile?"100%":260,background:"#0a160b",borderRight:isMobile?"none":`1px solid ${BORDER}`,borderBottom:isMobile?`1px solid ${BORDER}`:"none",display:showDetail&&isMobile?"none":"flex",flexDirection:"column",flexShrink:0,overflowY:"auto",maxHeight:isMobile?"45%":"100%"}}>
+      <div style={{width:isMobile?"100%":260,background:"#0a160b",borderRight:isMobile?"none":`1px solid ${BORDER}`,borderBottom:isMobile?`1px solid ${BORDER}`:"none",display:showDetail&&isMobile?"none":"flex",flexDirection:"column",flexShrink:0,overflowY:"auto",flex:isMobile?"none":"0 0 260px"}}>
 
         {/* AI Refresh */}
         <div style={{padding:"12px 10px 8px"}}>
@@ -2042,7 +2042,7 @@ function TransferTracker({ userCards, isMobile }) {
 
       {/* ── Detail panel ── */}
       {currentGroup && (
-        <div style={{flex:1,overflowY:"auto",padding:isMobile?"14px 16px":"22px 28px",display:!showDetail&&isMobile?"none":"block"}}>
+        <div style={{position:isMobile?"absolute":"relative",top:0,left:0,right:0,bottom:0,overflowY:"auto",padding:isMobile?"14px 16px":"22px 28px",display:!showDetail&&isMobile?"none":"block",zIndex:10,background:"#0c1a0e",flex:1}}>
           {isMobile && showDetail && <button onClick={()=>setShowDetail(false)} style={{background:"none",border:"none",color:"rgba(232,234,212,0.5)",cursor:"pointer",fontSize:13,fontFamily:"Georgia,serif",marginBottom:12,padding:0}}>← Back to list</button>}
 
           {/* Header */}
