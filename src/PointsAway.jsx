@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer, ReferenceLine } from "recharts";
 
 const API_URL = "https://api.anthropic.com/v1/messages";
@@ -2625,6 +2625,14 @@ export default function PointsAway() {
       const prog=all.find(p=>p.id===id);
       return prog ? `${v.toLocaleString()} ${prog.name}` : null;
     }).filter(Boolean).join(", ");
+
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 768);
+    check();
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
+  }, []);
 
   const navItems=[{id:"points",label:"⭐ My Points"},{id:"planner",label:"✈️ Trip Planner"},{id:"guides",label:"🗺️ City Guides"},{id:"tracker",label:"📊 Bonus Tracker"},{id:"transfers",label:"🔄 Transfer Bonuses"}];
 
