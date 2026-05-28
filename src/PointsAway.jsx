@@ -1682,7 +1682,7 @@ function ChartTip({active,payload,label}) {
   return <div style={{background:"#0a1a0c",border:`1px solid ${BORDER}`,borderRadius:8,padding:"8px 14px",fontSize:13,fontFamily:F}}><div style={{color:G,fontWeight:700,marginBottom:2}}>{label}</div><div style={{color:TEXT}}>{payload[0].value.toLocaleString()} pts</div></div>;
 }
 
-function Tracker({ userCards }) {
+function Tracker({ userCards, isMobile }) {
   const hasCards = userCards && userCards.length > 0;
   // Default to first card you DON'T have; sign-on bonuses only matter for new cards
   const notOwnedCards = Object.keys(CARD_DB).filter(n => !hasCards || !userCards.includes(n));
@@ -1800,7 +1800,7 @@ Valid IDs: chase-hyatt, chase-united, chase-virgin, chase-airfrance, chase-singa
 
 Only include partnerships with a CONFIRMED active bonus right now. Set bonus to the integer percentage (e.g. 30 for 30% bonus). If none are active, return [].`;
 
-function TransferTracker({ userCards }) {
+function TransferTracker({ userCards, isMobile }) {
   const hasCards = userCards && userCards.length > 0;
   const myProgramShorts = hasCards ? Array.from(new Set(userCards.map(n=>{
     const prog = CARD_DB[n]?.program||"";
