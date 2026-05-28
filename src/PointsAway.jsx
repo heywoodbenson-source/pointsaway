@@ -1716,8 +1716,8 @@ function Tracker({ userCards }) {
     setLoadingAI(false);
   };
   return (
-    <div style={{display:"flex",flex:1,minHeight:0,overflow:"hidden"}}>
-      <div style={{width:250,background:"#0a160b",borderRight:`1px solid ${BORDER}`,display:"flex",flexDirection:"column",overflowY:"auto"}}>
+    <div style={{display:"flex",flex:1,minHeight:0,overflow:"hidden",flexDirection:isMobile?"column":"row"}}>
+      <div style={{width:isMobile?"100%":250,background:"#0a160b",borderRight:isMobile?"none":`1px solid ${BORDER}`,borderBottom:isMobile?`1px solid ${BORDER}`:"none",display:showDetail&&isMobile?"none":"flex",flexDirection:"column",overflowY:"auto",maxHeight:isMobile?"45%":"100%"}}>
         <div style={{padding:14}}>
           <input value={search} onChange={e=>setSearch(e.target.value)} placeholder="🔍 Search cards..." style={{width:"100%",padding:"8px 11px",background:"rgba(255,255,255,0.04)",border:`1px solid ${BORDER}`,borderRadius:7,color:TEXT,fontSize:12,outline:"none",boxSizing:"border-box",fontFamily:F}}/>
           <div style={{display:"flex",gap:4,marginTop:9,flexWrap:"wrap"}}>
@@ -1744,7 +1744,8 @@ function Tracker({ userCards }) {
           })}
         </div>
       </div>
-      <div style={{flex:1,overflowY:"auto",padding:"22px 26px"}}>
+      <div style={{flex:1,overflowY:"auto",padding:isMobile?"14px 16px":"22px 26px",display:!showDetail&&isMobile?"none":"block"}}>
+        {isMobile && showDetail && <button onClick={()=>setShowDetail(false)} style={{background:"none",border:"none",color:"rgba(232,234,212,0.5)",cursor:"pointer",fontSize:13,fontFamily:"Georgia,serif",marginBottom:12,padding:0}}>← Back to list</button>}
         <div style={{background:`linear-gradient(135deg,${card.color},${card.color}bb)`,borderRadius:12,padding:"20px 24px",marginBottom:18,border:`1px solid ${card.accent}33`,position:"relative",overflow:"hidden"}}>
           <div style={{position:"absolute",right:-10,top:-10,width:80,height:80,borderRadius:"50%",background:`${card.accent}10`}}/>
           <div style={{display:"flex",justifyContent:"space-between",alignItems:"flex-start",flexWrap:"wrap",gap:14}}>
@@ -1930,10 +1931,10 @@ function TransferTracker({ userCards }) {
   };
 
   return (
-    <div style={{display:"flex",flex:1,minHeight:0,overflow:"hidden"}}>
+    <div style={{display:"flex",flex:1,minHeight:0,overflow:"hidden",flexDirection:isMobile?"column":"row"}}>
 
       {/* ── Sidebar: destination programs ── */}
-      <div style={{width:260,background:"#0a160b",borderRight:`1px solid ${BORDER}`,display:"flex",flexDirection:"column",flexShrink:0,overflowY:"auto"}}>
+      <div style={{width:isMobile?"100%":260,background:"#0a160b",borderRight:isMobile?"none":`1px solid ${BORDER}`,borderBottom:isMobile?`1px solid ${BORDER}`:"none",display:showDetail&&isMobile?"none":"flex",flexDirection:"column",flexShrink:0,overflowY:"auto",maxHeight:isMobile?"45%":"100%"}}>
 
         {/* AI Refresh */}
         <div style={{padding:"12px 10px 8px"}}>
@@ -2039,7 +2040,8 @@ function TransferTracker({ userCards }) {
 
       {/* ── Detail panel ── */}
       {currentGroup && (
-        <div style={{flex:1,overflowY:"auto",padding:"22px 28px"}}>
+        <div style={{flex:1,overflowY:"auto",padding:isMobile?"14px 16px":"22px 28px",display:!showDetail&&isMobile?"none":"block"}}>
+          {isMobile && showDetail && <button onClick={()=>setShowDetail(false)} style={{background:"none",border:"none",color:"rgba(232,234,212,0.5)",cursor:"pointer",fontSize:13,fontFamily:"Georgia,serif",marginBottom:12,padding:0}}>← Back to list</button>}
 
           {/* Header */}
           <div style={{background:"linear-gradient(135deg,#0d1f0f,#111f13)",borderRadius:14,padding:"22px 26px",marginBottom:18,border:`1px solid rgba(126,184,106,0.15)`}}>
