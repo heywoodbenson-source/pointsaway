@@ -2659,6 +2659,7 @@ export default function PointsAway() {
           <div style={{width:34,height:34,borderRadius:8,background:`linear-gradient(135deg,${G},#4a8a2a)`,display:"flex",alignItems:"center",justifyContent:"center",fontSize:16}}>✈️</div>
           <div>
             <div style={{fontSize:16,fontWeight:700,letterSpacing:"0.07em",color:TEXT}}>POINTSAWAY</div>
+            <div style={{fontSize:9,color:"red"}}>{isMobile?"MOBILE":"DESKTOP"} {typeof window !== "undefined" ? window.innerWidth : "?"}</div>
             <div style={{fontSize:8,letterSpacing:"0.2em",color:G,textTransform:"uppercase"}}>Plan family trips with your points</div>
           </div>
         </div>
