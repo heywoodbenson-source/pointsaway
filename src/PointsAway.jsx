@@ -1731,7 +1731,7 @@ function Tracker({ userCards, isMobile }) {
           {names.map(name=>{
             const c=CARD_DB[name];const latest=c.history[c.history.length-1].b;const cmax=Math.max(...c.history.filter(h=>h.b>0).map(h=>h.b));const isPeak=latest>=cmax&&latest>0;const isSel=selected===name;
             return (
-              <div key={name} onClick={()=>{setSelected(name);setAiInsight("");}} style={{padding:"10px 11px",borderRadius:7,marginBottom:3,cursor:"pointer",background:isSel?`${c.color}cc`:"transparent",border:isSel?`1px solid ${c.accent}44`:"1px solid transparent",transition:"all 0.15s"}}>
+              <div key={name} onClick={()=>{setSelected(name);setAiInsight("");if(isMobile)setShowDetail(true);}} style={{padding:"10px 11px",borderRadius:7,marginBottom:3,cursor:"pointer",background:isSel?`${c.color}cc`:"transparent",border:isSel?`1px solid ${c.accent}44`:"1px solid transparent",transition:"all 0.15s"}}>
                 <div style={{display:"flex",justifyContent:"space-between",alignItems:"flex-start",gap:4}}>
                   <div style={{fontSize:12,fontWeight:isSel?700:400,color:isSel?"#f0f0e0":"rgba(232,234,212,0.65)",lineHeight:1.3}}>{name}</div>
                   <div style={{display:"flex",gap:3,flexShrink:0}}>
