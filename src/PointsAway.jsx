@@ -1324,12 +1324,12 @@ function CityGuides({ onPlanTrip }) {
 
   // ── City grid ──────────────────────────────────────────────────────────────
   return (
-    <div style={{flex:1,overflowY:"auto",padding:"32px 36px"}}>
+    <div style={{flex:1,overflowY:"auto",padding:isMobile?"16px":"32px 36px"}}>
       <div style={{marginBottom:28}}>
         <h2 style={{fontSize:26,color:TEXT,margin:0,fontWeight:400}}>City Guides</h2>
         <p style={{color:MUT,fontSize:14,marginTop:6}}>Places we've actually been — restaurants, sights & honest family reviews.</p>
       </div>
-      <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fill,minmax(280px,1fr))",gap:16}}>
+      <div style={{display:"grid",gridTemplateColumns:isMobile?"1fr":"repeat(auto-fill,minmax(280px,1fr))",gap:16}}>
         {Object.entries(CITY_GUIDES).map(([name, city]) => {
           // Count spots per category for the card preview chips
           const catCounts = {};
@@ -1572,7 +1572,7 @@ function Planner({ prefillCity, onViewGuides, onViewTracker, userCards, myProgra
               </div>
               <div>
                 {lbl("🗺️","Destination")}
-                <StyledSelect value={form.destination} onChange={v=>setField("destination",v)} placeholder="Where to?">
+                <StyledSelect value={form.destination} onChange={v=>setField("destination",v)} placeholder="Suggest based on my points">
                   {DESTINATION_OPTIONS.map(o=><option key={o.value} value={o.value} style={{background:"#111f13",color:TEXT}}>{o.label}</option>)}
                 </StyledSelect>
               </div>
@@ -1745,7 +1745,7 @@ function Tracker({ userCards, isMobile }) {
           })}
         </div>
       </div>
-      <div style={{flex:1,overflowY:"auto",padding:"22px 26px",display:isMobile&&!showDetail?"none":"block"}}>
+      <div style={{flex:1,overflowY:"auto",padding:isMobile?"16px":"22px 26px",display:isMobile&&!showDetail?"none":"flex",flexDirection:"column"}}>
         {isMobile && showDetail && <button onClick={()=>setShowDetail(false)} style={{background:"none",border:"none",color:"rgba(232,234,212,0.5)",cursor:"pointer",fontSize:13,fontFamily:"Georgia,serif",marginBottom:12,padding:0}}>← Back to list</button>}
         <div style={{background:`linear-gradient(135deg,${card.color},${card.color}bb)`,borderRadius:12,padding:"20px 24px",marginBottom:18,border:`1px solid ${card.accent}33`,position:"relative",overflow:"hidden"}}>
           <div style={{position:"absolute",right:-10,top:-10,width:80,height:80,borderRadius:"50%",background:`${card.accent}10`}}/>
@@ -1936,7 +1936,7 @@ function TransferTracker({ userCards, isMobile }) {
     <div style={{display:"flex",flex:1,minHeight:0,overflow:"hidden",position:"relative"}}>
 
       {/* ── Sidebar: destination programs ── */}
-      <div style={{width:260,background:"#0a160b",borderRight:`1px solid ${BORDER}`,display:isMobile&&showDetail?"none":"flex",flexDirection:"column",flexShrink:0,overflowY:"auto"}}>
+      <div style={{width:isMobile?"100%":260,background:"#0a160b",borderRight:isMobile?"none":`1px solid ${BORDER}`,borderBottom:isMobile?`1px solid ${BORDER}`:"none",display:isMobile&&showDetail?"none":"flex",flexDirection:"column",flexShrink:0,overflowY:"auto",flex:isMobile?"1 0 auto":"0 0 260px"}}>
 
         {/* AI Refresh */}
         <div style={{padding:"12px 10px 8px"}}>
@@ -2042,7 +2042,7 @@ function TransferTracker({ userCards, isMobile }) {
 
       {/* ── Detail panel ── */}
       {currentGroup && (
-        <div style={{flex:1,overflowY:"auto",padding:"22px 28px",display:isMobile&&!showDetail?"none":"block"}}>
+        <div style={{flex:1,overflowY:"auto",padding:isMobile?"16px":"22px 28px",display:isMobile&&!showDetail?"none":"flex",flexDirection:"column"}}>
           {isMobile && showDetail && <button onClick={()=>setShowDetail(false)} style={{background:"none",border:"none",color:"rgba(232,234,212,0.5)",cursor:"pointer",fontSize:13,fontFamily:"Georgia,serif",marginBottom:12,padding:0}}>← Back to list</button>}
 
           {/* Header */}
