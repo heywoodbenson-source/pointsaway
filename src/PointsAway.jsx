@@ -1138,7 +1138,7 @@ function ChipSelect({ options, selected, onToggle }) {
   );
 }
 
-function CityGuides({ onPlanTrip }) {
+function CityGuides({ onPlanTrip, isMobile }) {
   const [selected, setSelected] = useState(null);
   const [activeSpot, setActiveSpot] = useState(0);
   const [activeCategory, setActiveCategory] = useState("All");
