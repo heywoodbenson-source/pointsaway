@@ -1745,7 +1745,7 @@ function Tracker({ userCards, isMobile }) {
           })}
         </div>
       </div>
-      <div style={{flex:1,overflowY:"auto",padding:isMobile?"16px":"22px 26px",display:isMobile&&!showDetail?"none":"flex",flexDirection:"column"}}>
+      <div style={{position:isMobile?"fixed":"relative",top:isMobile?56:0,left:0,right:0,bottom:isMobile?60:0,overflowY:"auto",padding:isMobile?"16px":"22px 26px",display:isMobile&&!showDetail?"none":"flex",flexDirection:"column",background:isMobile?BG:"transparent",zIndex:isMobile?50:0}}>
         {isMobile && showDetail && <button onClick={()=>setShowDetail(false)} style={{background:"none",border:"none",color:"rgba(232,234,212,0.5)",cursor:"pointer",fontSize:13,fontFamily:"Georgia,serif",marginBottom:12,padding:0}}>← Back to list</button>}
         <div style={{background:`linear-gradient(135deg,${card.color},${card.color}bb)`,borderRadius:12,padding:"20px 24px",marginBottom:18,border:`1px solid ${card.accent}33`,position:"relative",overflow:"hidden"}}>
           <div style={{position:"absolute",right:-10,top:-10,width:80,height:80,borderRadius:"50%",background:`${card.accent}10`}}/>
@@ -2042,7 +2042,7 @@ function TransferTracker({ userCards, isMobile }) {
 
       {/* ── Detail panel ── */}
       {currentGroup && (
-        <div style={{flex:1,overflowY:"auto",padding:isMobile?"16px":"22px 28px",display:isMobile&&!showDetail?"none":"flex",flexDirection:"column"}}>
+        <div style={{position:isMobile?"fixed":"relative",top:isMobile?56:0,left:0,right:0,bottom:isMobile?60:0,overflowY:"auto",padding:isMobile?"16px":"22px 28px",display:isMobile&&!showDetail?"none":"flex",flexDirection:"column",background:isMobile?BG:"transparent",zIndex:isMobile?50:0}}>
           {isMobile && showDetail && <button onClick={()=>setShowDetail(false)} style={{background:"none",border:"none",color:"rgba(232,234,212,0.5)",cursor:"pointer",fontSize:13,fontFamily:"Georgia,serif",marginBottom:12,padding:0}}>← Back to list</button>}
 
           {/* Header */}

@@ -2,8 +2,12 @@ with open('src/PointsAway.jsx') as f:
     content = f.read()
 
 idx = content.find('function Tracker({')
-# Find the return statement
 ret = content.find('return (', idx)
-block = content[ret:ret+800]
-print("TRACKER RETURN:")
-print(block)
+end = content.find('\nfunction ', ret)
+block = content[ret:end]
+
+# Find all divs with showDetail
+import re
+for m in re.finditer('showDetail', block):
+    print(repr(block[m.start()-80:m.start()+120]))
+    print("---")

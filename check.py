@@ -1,8 +1,8 @@
 with open('src/PointsAway.jsx') as f:
     content = f.read()
 
-# Find Tracker outer container
+# Find Tracker return
 idx = content.find('function Tracker({')
-block = content[idx:idx+500]
-print("TRACKER START:")
-print(block)
+ret = content.find('return (', idx)
+print("TRACKER OUTER DIV:")
+print(repr(content[ret:ret+300]))
