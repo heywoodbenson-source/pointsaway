@@ -1964,7 +1964,7 @@ function TransferTracker({ userCards, isMobile }) {
             {activeDeals.map(d=>{
               const activeSrc = d.sources.filter(s=>(s.history[s.history.length-1]?.bonus||0)>0);
               return (
-                <div key={d.partner} onClick={()=>setSelectedPartner(d.partner)}
+                <div key={d.partner} onClick={()=>{setSelectedPartner(d.partner);if(isMobile)setShowDetail(true);}}
                   style={{fontSize:11,color:TEXT,cursor:"pointer",padding:"3px 0",display:"flex",justifyContent:"space-between"}}>
                   <span>{d.partnerEmoji} {d.partner}</span>
                   <div style={{display:"flex",gap:3}}>
@@ -2004,7 +2004,7 @@ function TransferTracker({ userCards, isMobile }) {
             const activeSources = g.sources.filter(s=>(s.history[s.history.length-1]?.bonus||0)>0);
             const sourceCount = g.sources.length;
             return (
-              <div key={g.partner} onClick={()=>setSelectedPartner(g.partner)}
+              <div key={g.partner} onClick={()=>{setSelectedPartner(g.partner);if(isMobile)setShowDetail(true);}}
                 style={{padding:"10px 11px",borderRadius:8,marginBottom:3,cursor:"pointer",
                   background:isSel?"rgba(126,184,106,0.1)":"transparent",
                   border:isSel?`1px solid rgba(126,184,106,0.3)`:"1px solid transparent",
@@ -2202,7 +2202,7 @@ function TransferTracker({ userCards, isMobile }) {
                 {activeDeals.map(g=>{
                   const activeSrc = g.sources.filter(s=>(s.history[s.history.length-1]?.bonus||0)>0);
                   return (
-                    <div key={g.partner} onClick={()=>setSelectedPartner(g.partner)}
+                    <div key={g.partner} onClick={()=>{setSelectedPartner(g.partner);if(isMobile)setShowDetail(true);}}
                       style={{display:"flex",justifyContent:"space-between",alignItems:"center",padding:"10px 12px",background:"rgba(126,184,106,0.07)",borderRadius:7,cursor:"pointer",border:`1px solid rgba(126,184,106,0.15)`,transition:"background 0.15s"}}
                       onMouseEnter={e=>e.currentTarget.style.background="rgba(126,184,106,0.12)"}
                       onMouseLeave={e=>e.currentTarget.style.background="rgba(126,184,106,0.07)"}>
