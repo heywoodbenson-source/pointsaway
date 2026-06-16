@@ -1717,8 +1717,8 @@ function Tracker({ userCards, isMobile }) {
     setLoadingAI(false);
   };
   return (
-    <div style={{display:"flex",flex:1,minHeight:0,overflow:"hidden",position:"relative"}}>
-      <div style={{width:250,background:"#0a160b",borderRight:`1px solid ${BORDER}`,display:isMobile&&showDetail?"none":"flex",flexDirection:"column",overflowY:"auto",flexShrink:0}}>
+    <div style={{display:"flex",flex:1,minHeight:0,overflow:"hidden"}}>
+      <div style={{width:isMobile?"100%":250,background:"#0a160b",borderRight:isMobile?"none":`1px solid ${BORDER}`,display:isMobile&&showDetail?"none":"flex",flexDirection:"column",overflowY:"auto",flexShrink:0,flex:isMobile&&!showDetail?"1":"0 0 250px"}}>
         <div style={{padding:14}}>
           <input value={search} onChange={e=>setSearch(e.target.value)} placeholder="🔍 Search cards..." style={{width:"100%",padding:"8px 11px",background:"rgba(255,255,255,0.04)",border:`1px solid ${BORDER}`,borderRadius:7,color:TEXT,fontSize:12,outline:"none",boxSizing:"border-box",fontFamily:F}}/>
           <div style={{display:"flex",gap:4,marginTop:9,flexWrap:"wrap"}}>
@@ -1933,10 +1933,10 @@ function TransferTracker({ userCards, isMobile }) {
   };
 
   return (
-    <div style={{display:"flex",flex:1,minHeight:0,overflow:"hidden",position:"relative"}}>
+    <div style={{display:"flex",flex:1,minHeight:0,overflow:"hidden"}}>
 
       {/* ── Sidebar: destination programs ── */}
-      <div style={{width:isMobile?"100%":260,background:"#0a160b",borderRight:isMobile?"none":`1px solid ${BORDER}`,borderBottom:isMobile?`1px solid ${BORDER}`:"none",display:isMobile&&showDetail?"none":"flex",flexDirection:"column",flexShrink:0,overflowY:"auto",flex:isMobile?"1 0 auto":"0 0 260px"}}>
+      <div style={{width:isMobile?"100%":260,background:"#0a160b",borderRight:isMobile?"none":`1px solid ${BORDER}`,borderBottom:isMobile?`1px solid ${BORDER}`:"none",display:isMobile&&showDetail?"none":"flex",flexDirection:"column",flexShrink:0,overflowY:"auto",flex:isMobile&&!showDetail?"1":"0 0 260px"}}>
 
         {/* AI Refresh */}
         <div style={{padding:"12px 10px 8px"}}>
