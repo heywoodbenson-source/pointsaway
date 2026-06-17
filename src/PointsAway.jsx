@@ -1717,7 +1717,8 @@ function Tracker({ userCards, isMobile }) {
     setLoadingAI(false);
   };
   return (
-    <div style={{display:"flex",flex:1,minHeight:0,overflow:"hidden"}}>
+    <div style={{display:"flex",flex:1,minHeight:0,overflow:"hidden",position:"relative"}}>
+      {isMobile && <div style={{position:"fixed",top:56,left:0,right:0,height:30,background:showDetail?"green":"red",zIndex:999,color:"white",fontSize:11,display:"flex",alignItems:"center",justifyContent:"center"}}>{showDetail?"DETAIL=TRUE":"DETAIL=FALSE - tap item"}</div>}
       <div style={{width:isMobile?"100%":250,background:"#0a160b",borderRight:isMobile?"none":`1px solid ${BORDER}`,display:isMobile&&showDetail?"none":"flex",flexDirection:"column",overflowY:"auto",flexShrink:0,flex:isMobile?"1":"0 0 250px"}}>
         <div style={{padding:14}}>
           <input value={search} onChange={e=>setSearch(e.target.value)} placeholder="🔍 Search cards..." style={{width:"100%",padding:"8px 11px",background:"rgba(255,255,255,0.04)",border:`1px solid ${BORDER}`,borderRadius:7,color:TEXT,fontSize:12,outline:"none",boxSizing:"border-box",fontFamily:F}}/>
