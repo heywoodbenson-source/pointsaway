@@ -1718,8 +1718,7 @@ function Tracker({ userCards, isMobile }) {
   };
   return (
     <div style={{display:"flex",flex:1,minHeight:0,overflow:"hidden",position:"relative"}}>
-      {isMobile && <div style={{position:"fixed",top:56,left:0,right:0,height:30,background:showDetail?"green":"red",zIndex:999,color:"white",fontSize:11,display:"flex",alignItems:"center",justifyContent:"center"}}>{showDetail?"DETAIL=TRUE":"DETAIL=FALSE - tap item"}</div>}
-      <div style={{width:isMobile?"100%":250,background:"#0a160b",borderRight:isMobile?"none":`1px solid ${BORDER}`,display:isMobile&&showDetail?"none":"flex",flexDirection:"column",overflowY:"auto",flexShrink:0,flex:isMobile?"1":"0 0 250px"}}>
+      {(!isMobile || !showDetail) && <div style={{width:isMobile?"100%":250,background:"#0a160b",borderRight:isMobile?"none":`1px solid ${BORDER}`,display:isMobile&&showDetail?"none":"flex",flexDirection:"column",overflowY:"auto",flexShrink:0,flex:isMobile?"1":"0 0 250px"}}>
         <div style={{padding:14}}>
           <input value={search} onChange={e=>setSearch(e.target.value)} placeholder="🔍 Search cards..." style={{width:"100%",padding:"8px 11px",background:"rgba(255,255,255,0.04)",border:`1px solid ${BORDER}`,borderRadius:7,color:TEXT,fontSize:12,outline:"none",boxSizing:"border-box",fontFamily:F}}/>
           <div style={{display:"flex",gap:4,marginTop:9,flexWrap:"wrap"}}>
@@ -1745,8 +1744,8 @@ function Tracker({ userCards, isMobile }) {
             );
           })}
         </div>
-      </div>
-      <div style={{position:isMobile?"absolute":"relative",top:0,left:0,right:0,bottom:0,flex:1,overflowY:"auto",padding:isMobile?"14px 16px":"22px 26px",display:showDetail||!isMobile?"flex":"none",flexDirection:"column",background:isMobile?BG:"transparent",zIndex:isMobile?10:0}}>
+      </div>}
+      {(!isMobile || showDetail) && <div style={{flex:1,overflowY:"auto",padding:isMobile?"14px 16px":"22px 26px",display:showDetail||!isMobile?"flex":"none",flexDirection:"column",background:isMobile?BG:"transparent",zIndex:isMobile?10:0}}>
         {isMobile && showDetail && <button onClick={()=>setShowDetail(false)} style={{background:"none",border:"none",color:"rgba(232,234,212,0.5)",cursor:"pointer",fontSize:13,fontFamily:"Georgia,serif",marginBottom:12,padding:0}}>← Back to list</button>}
         <div style={{background:`linear-gradient(135deg,${card.color},${card.color}bb)`,borderRadius:12,padding:"20px 24px",marginBottom:18,border:`1px solid ${card.accent}33`,position:"relative",overflow:"hidden"}}>
           <div style={{position:"absolute",right:-10,top:-10,width:80,height:80,borderRadius:"50%",background:`${card.accent}10`}}/>
@@ -1785,7 +1784,7 @@ function Tracker({ userCards, isMobile }) {
           <div style={{flex:1}}><div style={{fontSize:12,fontWeight:700,color:G}}>Ready to earn those points?</div><div style={{fontSize:11,color:MUT,marginTop:1}}>Apply now to hit the sign-on bonus before your next trip.</div></div>
           <button style={{padding:"8px 16px",background:G,border:"none",borderRadius:5,color:BG,fontWeight:700,fontSize:12,cursor:"pointer",fontFamily:F}}>Apply Now →</button>
         </div>
-      </div>
+      </div>}
     </div>
   );
 }
