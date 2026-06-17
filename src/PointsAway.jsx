@@ -1523,7 +1523,7 @@ function Planner({ prefillCity, onViewGuides, onViewTracker, userCards, myProgra
   const handleSubmit = async () => {
     if (!isReady) return;
     setLoading(true); setStep("loading");
-    const match = Object.keys(CITY_GUIDES).find(c=>form.destination?.toLowerCase().includes(c.toLowerCase())||c.toLowerCase().includes(form.destination?.toLowerCase()));
+    const match = form.destination ? Object.keys(CITY_GUIDES).find(c=>form.destination?.toLowerCase().includes(c.toLowerCase())||c.toLowerCase().includes(form.destination?.toLowerCase())) : null;
     setMatchedCity(match||null);
     const cityContext = match?`\n\nNote: We have verified personal reviews for ${match}. Spots: ${CITY_GUIDES[match].spots.map(s=>`${s.name} (${s.type}, ${s.budget}, must-order: ${s.mustOrder})`).join("; ")}. Incorporate these and mark as verified family picks.`:"";
     const prompt = `Plan a family trip:\n- From: ${form.origin}\n- To: ${form.destination||"suggest based on points"}\n- Travelers: ${form.travelers}\n- When: ${form.when}\n- Trip length: ${form.tripLength}\n- Budget: ${form.budget||"flexible"}\n- Points: ${form.points.length?form.points.join(", "):"open to any"}\n- Interests: ${form.interests.length?form.interests.join(", "):"sightseeing, great food"}${cityContext}`;
