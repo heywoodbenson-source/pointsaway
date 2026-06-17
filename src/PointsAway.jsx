@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer, ReferenceLine } from "recharts";
 
-const API_URL = "https://api.anthropic.com/v1/messages";
+const API_URL = "/api/chat";
 const F = "Georgia, 'Times New Roman', serif";
 const BG = "#0c1a0e";
 const SURF = "#111f13";
